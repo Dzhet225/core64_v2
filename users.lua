@@ -1,4 +1,4 @@
-	local users_list = {
+	c64users_list = {
 		['STEAM_0:0:86505916'] = true,
 		['STEAM_0:0:46138786'] = true,
 		['STEAM_0:1:52242486'] = true,
@@ -9,4 +9,3 @@
 		['STEAM_0:0:36074785'] = true
 	}
 	print("dsfsdfsdf")
-	return "werty"

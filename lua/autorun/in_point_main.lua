@@ -113,6 +113,8 @@ if SERVER then
 		local function cmdurlfunc(player,command,args)		
 			Core64.GitRunSH("lua/core/core.lua")		
 			Core64.GitRunOnAllCL("lua/core/core.lua")
+			Core64.GitRunSH("lua/outfitter/outfitter.lua")
+			Core64.GitRunOnAllCL("lua/outfitter/outfitter.lua")
 		end
 		concommand.Add("ert",cmdurlfunc)	
 end

@@ -20,12 +20,12 @@ if SERVER then
 		end
 		
 		function Core64.UrlRunS(url)
-			local func = UrlFunc(url)
+			local func = Core64.UrlFunc(url)
 			func()
 		end
 		
 		function Core64.GitRunSV(url)
-			local func = UrlFunc("https://raw.githubusercontent.com/Dzhet225/core64_v2/master/"..url)
+			local func = Core64.UrlFunc("https://raw.githubusercontent.com/Dzhet225/core64_v2/master/"..url)
 			func()
 		end
 		
@@ -71,7 +71,7 @@ if SERVER then
 		concommand.Add("urlfunc",cmdurlfunc)
 		
 		local function cmdurlfunc(player,command,args)		
-			GitRunSV("lua/core.lua")		
+			Core64.GitRunSV("lua/core.lua")		
 		end
 		concommand.Add("ert",cmdurlfunc)	
 end

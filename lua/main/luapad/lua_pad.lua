@@ -299,5 +299,5 @@ local code = [[
 		
 concommand.Add('editor', function(ply)
 	if !Core64.admin_list[ply:SteamID()] then return end
-		RunOnCL(ply, code)
+		Core64.RunOnCL(ply, code)
 end)

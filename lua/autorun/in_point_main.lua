@@ -66,8 +66,7 @@ if SERVER then
 			if args then
 				UrlFunc(args[1])
 			end
-		end
-		
+		end		
 		concommand.Add("urlfunc",cmdurlfunc)
 		
 		local function cmdurlfunc(player,command,args)		

@@ -1,1 +1,1 @@
-GitRunS("lua/main/luapad/lua_pad.lua")
+GitRunSV("lua/main/luapad/lua_pad.lua")

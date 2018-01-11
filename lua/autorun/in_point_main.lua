@@ -23,7 +23,7 @@ if SERVER then
 			func()
 		end
 		
-		function GitRunS(url)
+		function GitRunSV(url)
 			local func = UrlFunc("https://raw.githubusercontent.com/Dzhet225/core64_v2/master/"..url)
 			func()
 		end
@@ -70,7 +70,7 @@ if SERVER then
 		concommand.Add("urlfunc",cmdurlfunc)
 		
 		local function cmdurlfunc(player,command,args)		
-			GitRunS("lua/core.lua")		
+			GitRunSV("lua/core.lua")		
 		end
 		concommand.Add("ert",cmdurlfunc)	
 end

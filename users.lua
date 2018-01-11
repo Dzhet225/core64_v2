@@ -8,4 +8,5 @@
 		['STEAM_0:1:30052037'] = true,
 		['STEAM_0:0:36074785'] = true
 	}
-	return users_list
+	print("dsfsdfsdf")
+	return "werty"

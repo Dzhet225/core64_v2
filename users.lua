@@ -1,4 +1,4 @@
-local users_list = {
+core64.users_list = {
 	['STEAM_0:0:86505916'] = true,--kktk
 	['STEAM_0:0:46138786'] = true,--nil
 	['STEAM_0:1:52242486'] = true,--shvo

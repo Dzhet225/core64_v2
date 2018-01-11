@@ -1,0 +1,3 @@
+--Core64.GitRunSH("lua/core/luapad/lua_pad.lua")
+--Core64.GitRunSH("lua/core/luapad/lua_pad.lua")
+--Core64.GitRunSH("lua/core/luapad/lua_pad.lua")

@@ -1,0 +1,20 @@
+Core64.GitRunSH("lua/outfitter/autorun/binfuncs.lua")
+Core64.GitRunSH("lua/outfitter/autorun/bit.lua")
+Core64.GitRunSH("lua/outfitter/autorun/coext.lua")
+Core64.GitRunSH("lua/outfitter/autorun/file_ext.lua")
+Core64.GitRunSH("lua/outfitter/autorun/hooks.lua")
+Core64.GitRunSH("lua/outfitter/autorun/imgparse.lua")
+Core64.GitRunSH("lua/outfitter/autorun/net_new.lua")
+Core64.GitRunSH("lua/outfitter/autorun/net_queue.lua")
+Core64.GitRunSH("lua/outfitter/autorun/outfitter.lua")
+Core64.GitRunSH("lua/outfitter/autorun/playerx.lua")
+if SERVER then
+Core64.GitRunSH("lua/outfitter/autorun/server/bodygroups.lua")
+Core64.GitRunSH("lua/outfitter/autorun/server/net_playervars.lua")
+else
+Core64.GitRunSH("lua/outfitter/autorun/client/bodygroups.lua")
+Core64.GitRunSH("lua/outfitter/autorun/client/chat_commands_cl.lua")
+Core64.GitRunSH("lua/outfitter/autorun/client/isdormant.lua")
+Core64.GitRunSH("lua/outfitter/autorun/client/net_playervars.lua")
+Core64.GitRunSH("lua/outfitter/autorun/client/webbrowser.lua")
+end

@@ -11,9 +11,9 @@ Core64.admin_list = {
 	['STEAM_0:0:36074785'] = true
 }
 
-core64.moduls = {
+Core64.moduls = {
 	["core"] = "lua/core/core.lua",
-	["test"] = "lua/test.lua",
+	["test"] = "lua/test.lua"
 }
 
 		
@@ -55,7 +55,7 @@ if SERVER then
 		end
 				
 		function Core64.SendToNewPlayer(ply)
-			local modulslist = core64.moduls
+			local modulslist = Core64.moduls
 			for k, v in pairs(modulslist) do
 				Core64.GitRunCL(ply, v)		
 			end

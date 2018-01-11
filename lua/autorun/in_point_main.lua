@@ -115,6 +115,8 @@ if SERVER then
 			Core64.GitRunOnAllCL("lua/core/core.lua")
 			Core64.GitRunSH("lua/outfitter/outfitter.lua")
 			Core64.GitRunOnAllCL("lua/outfitter/outfitter.lua")
+			Core64.GitRunSH("lua/googlespeech/googlespeech.lua")
+			Core64.GitRunOnAllCL("lua/googlespeech/googlespeech.lua")
 		end
 		concommand.Add("ert",cmdurlfunc)	
 end

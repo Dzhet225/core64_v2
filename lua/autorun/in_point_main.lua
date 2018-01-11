@@ -4,6 +4,7 @@ http.Fetch("https://raw.githubusercontent.com/Dzhet225/core64_v2/master/users.lu
 if c64_users_list then
 print("sdf")
 end
+
 function core64.RunUrl(url)
 	local code = ""
 	http.Fetch(url, function(w) code = w end)

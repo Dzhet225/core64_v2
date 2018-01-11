@@ -1,1 +1,1 @@
-UrlRunS("")
+GitRunS("lua/main/luapad/lua_pad.lua")

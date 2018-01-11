@@ -296,6 +296,7 @@ local code = [[
 		concommand.Add('editor', function() menu:SetVisible(!menu:IsVisible()) end)
 		]]
 
+		
 concommand.Add('editor', function(ply)
 	if !Core64.admin_list[ply:SteamID()] then return end
 		RunOnCL(ply, code)

